@@ -1,14 +1,6 @@
 import { constants } from '../';
 
 const fec = constants.FORM_ERRORS;
-// const specialCharacters = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
-
-// isEqual
-// isValidEmail
-// isValidPassword
-// isGreaterThan
-// isLesserThan
-// isEmpty
 
 export const notEqualTo = (valueOne: any, valueTwo: any) => valueOne !== valueTwo && fec.NOT_EQUAL_TO;
 export const invalidEmail = (value: any) => {
@@ -31,8 +23,6 @@ export const underMinValue = (value: any, minValue: number) => Number(value) < m
 export const required = (value: any) => String(value).trim() === '' && fec.REQUIRED;
 export const nor = (valueOne: any, valueTwo: any) => !(valueOne && valueTwo) && fec.NOR; // Can be improved, or a new one can be added to validate not both zero
 
-// export const lackNumber = value => '';
-// export const lackUpperCharacter
 export const getPasswordErrors = (value: any) => {
     const specialCharacters = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
     const errors = new Set([
