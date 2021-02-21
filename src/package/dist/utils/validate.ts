@@ -23,7 +23,7 @@ export default function validate(valueMap: any = {}, errorMap: any = {}) {
     let fieldName: string;
 
     for (fieldName in valueMap) {
-        let errorCode: number | false = false;
+        let errorCode: string | false = false;
         const value = valueMap[fieldName];
         // Getting error code per field
         switch (fieldName) {

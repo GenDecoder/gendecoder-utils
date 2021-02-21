@@ -1,21 +1,17 @@
-export const FORM_ERROR_CODES = {
-    INVALID_EMAIL: 1,
-    INVALID_PASSWORD: 2,
-    NOT_EQUAL_TO: 3,
-    OVER_MAX_LENGTH: 4,
-    OVER_MAX_VALUE: 5,
-    REQUIRED: 6,
-    UNDER_MIN_LENGTH: 7,
-    UNDER_MIN_VALUE: 8,
-    NOR: 9,
-    LACK_NUMBER: 10,
-    LACK_UPPER_CHARACTER: 11,
-    LACK_LOWER_CHARACTER: 12,
-    LACK_SPECIAL_CHARACTER: 13,
-    WITHOUT_LOWER_CASE_CHARACTER: 14,
-    WITHOUT_NUMBER: 15,
-    WITHOUT_SPECIAL_CHARACTER: 16,
-    WITHOUT_UPPER_CASE_CHARACTER: 17,
+export const FORM_ERRORS = {
+    INVALID_EMAIL: 'error_code_invalid_email',
+    INVALID_PASSWORD: 'error_code_invalid_password',
+    NOR: 'error_code_nor',
+    NOT_EQUAL_TO: 'error_code_not_equal_to',
+    OVER_MAX_LENGTH: 'error_code_over_max_length',
+    OVER_MAX_VALUE: 'error_code_over_max_value',
+    REQUIRED: 'error_code_required',
+    UNDER_MIN_LENGTH: 'error_code_under_min_length',
+    UNDER_MIN_VALUE: 'error_code_under_min_value',
+    WITHOUT_LOWER_CASE_CHARACTER: 'error_code_without_lower_case',
+    WITHOUT_NUMBER: 'error_code_without_number',
+    WITHOUT_SPECIAL_CHARACTER: 'error_code_without_special_character',
+    WITHOUT_UPPER_CASE_CHARACTER: 'error_code_without_upper_case',
 };
 
 export const FIELD_KEYS = {
@@ -25,7 +21,7 @@ export const FIELD_KEYS = {
     NAME: 'name',
     EMAIL: 'email',
     PASSWORD: 'password',
-    REPEAT_PASSWORD: 'repeat-password',
+    REPEAT_PASSWORD: 'repeat_password',
     MESSAGE: 'message',
     AGREEMENT: 'agreement'
 };

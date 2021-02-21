@@ -1,6 +1,6 @@
 import { constants } from '../';
 
-const fec = constants.FORM_ERROR_CODES;
+const fec = constants.FORM_ERRORS;
 // const specialCharacters = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
 
 // isEqual

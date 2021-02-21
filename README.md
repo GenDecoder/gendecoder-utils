@@ -1,6 +1,6 @@
 # 🔨  Gendecoder Utils
 
-This is a compound pieces of code I've found useful among different projects.
+This is a compound of pieces of code that I've found useful among different projects.
 ## Installation
 
 `npm install gendecoder-utils`
