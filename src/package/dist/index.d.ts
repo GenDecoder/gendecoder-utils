@@ -25,9 +25,9 @@ export type TFieldKey = 'first_name' |
 export type TFieldValue = 'm' | 'f';
 declare module 'gendecoder-utils' {
     export const constants: {
-        FORM_ERRORS: { string: TErrorCode, }
-        FIELD_KEYS: { string: TFieldKey },
-        FIELD_VALUES: { string: TFieldValue }
+        FORM_ERRORS: { [key: string]: TErrorCode, }
+        FIELD_KEYS: { [key: string]: TFieldKey },
+        FIELD_VALUES: { [key: string]: TFieldValue }
     };
     export function validate (valueMap: any, errorMap: any): any;
     export const validationFns: {
