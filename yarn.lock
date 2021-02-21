@@ -8799,6 +8799,11 @@ raw-body@2.4.0:
     iconv-lite "0.4.24"
     unpipe "1.0.0"
 
+react-100-form@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/react-100-form/-/react-100-form-0.1.6.tgz#d84815e0711ae9dad4c993c9de50ac63899a68fd"
+  integrity sha512-FT8M4UgjWjtb9YQEu9iLGk00sneKIJb9y3xKxWW1pIitJhSauzZhiOthZyY1OQRkYeY5tuAbyJ9TnBtJBJX53Q==
+
 react-app-polyfill@^1.0.6:
   version "1.0.6"
   resolved "https://registry.yarnpkg.com/react-app-polyfill/-/react-app-polyfill-1.0.6.tgz#890f8d7f2842ce6073f030b117de9130a5f385f0"

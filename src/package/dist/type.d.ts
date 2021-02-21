@@ -1,1 +1,1 @@
-export type TKeyValue = { [key: string]: any };
+export type validate = any;

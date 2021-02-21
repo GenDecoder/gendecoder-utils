@@ -1,17 +1,18 @@
 {
-    "name": "react-100-form",
-    "version": "0.1.6",
-    "description": "Simple form utility made using react hooks",
+    "name": "gendecoder-utils",
+    "version": "0.1.0",
+    "description": "🔧 A bunch of utilities that are useful no matter which project",
     "main": "dist/index.ts",
     "types": "dist/index.d.ts",
     "keywords": [
-        "form",
+        "utils",
         "react",
-        "100",
-        "hundred",
-        "hooks",
+        "javascript",
+        "form",
         "package",
-        "utility"
+        "utility",
+        "utils",
+        "gendecoder"
     ],
     "peerDependencies": {
         "react": "^16.8.0",
@@ -19,10 +20,10 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/GenDecoder/react-100-form"
+        "url": "https://github.com/GenDecoder/gendecoder-utils"
     },
     "bugs": {
-        "url": "https://github.com/GenDecoder/react-100-form/issues"
+        "url": "https://github.com/GenDecoder/gendecoder-utils/issues"
     },
     "author": "Mario Medrano Maldonado <mario.medrano.maldonado@gmail.com>",
     "license": "MIT"

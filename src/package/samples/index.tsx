@@ -1,8 +1,7 @@
 import React from 'react';
-import { useForm } from '../dist';
-import * as constants from './constants';
+import { useForm } from 'react-100-form';
+import { constants, validate } from '../dist';
 import './styles.css';
-import { validate } from './utils';
 
 const { EMAIL, PASSWORD, GENDER, AGREEMENT } = constants.FIELD_KEYS;
 const { FEMALE, MALE } = constants.FIELD_VALUES;
@@ -131,7 +130,9 @@ const SampleForm = () => {
                             type="radio"
                             value={MALE}
                         />
-                        <label htmlFor={MALE} style={{ marginLeft: 5 }}>{'Male'}</label>
+                        <label htmlFor={MALE} style={{ marginLeft: 5 }}>
+                            {'Male'}
+                        </label>
                     </div>
                     <div>
                         <input
@@ -142,7 +143,9 @@ const SampleForm = () => {
                             type="radio"
                             value={FEMALE}
                         />
-                        <label htmlFor={FEMALE} style={{ marginLeft: 5 }}>{'Female'}</label>
+                        <label htmlFor={FEMALE} style={{ marginLeft: 5 }}>
+                            {'Female'}
+                        </label>
                     </div>
 
                     <div className="info-container">
@@ -165,7 +168,9 @@ const SampleForm = () => {
                             type="checkbox"
                             value={values[AGREEMENT]}
                         />
-                        <label htmlFor={AGREEMENT} style={{ marginLeft: 5 }}>{'Do you accept?'}</label>
+                        <label htmlFor={AGREEMENT} style={{ marginLeft: 5 }}>
+                            {'Do you accept?'}
+                        </label>
                     </div>
 
                     <div className="info-container">
