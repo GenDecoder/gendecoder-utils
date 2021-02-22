@@ -1,14 +1,10 @@
 name: NPM publish
 on:
   push:
+    branches:    
+      - main
     tags:
-      - 'bump-version*'
-on:
-    push:
-        branches: [main]
-    pull_request:
-        branches: [main]
-
+      - 'bump-version-*'
 jobs:
     transpile-patch-publish:
         runs-on: ubuntu-latest
