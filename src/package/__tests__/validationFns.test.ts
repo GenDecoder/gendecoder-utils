@@ -35,5 +35,18 @@ describe("validationFns", () => {
 			expect(vfs.overMaxLength('1234', maxLength)).toBeFalsy();
 			expect(vfs.overMaxLength(1234, maxLength)).toBeFalsy();
 		});
+	});
+	describe('overMaxValue', () => {
+		const maxValue = 10;
+		it(`RETURNS ${fes.over_max_value} WHEN *value* is greater than ${maxValue}`, () => {
+			expect(vfs.overMaxValue(11, maxValue)).toBe(fes.over_max_value);
+			expect(vfs.overMaxValue('123456', maxValue)).toBe(fes.over_max_value);
+		});
+		it(`RETURNS false WHEN *value* is equal or lesser than ${maxValue}`, () => {
+			expect(vfs.overMaxValue('10', maxValue)).toBeFalsy();
+			expect(vfs.overMaxValue(10, maxValue)).toBeFalsy();
+			expect(vfs.overMaxValue('9', maxValue)).toBeFalsy();
+			expect(vfs.overMaxValue(9, maxValue)).toBeFalsy();
+		});
 	})
 });
