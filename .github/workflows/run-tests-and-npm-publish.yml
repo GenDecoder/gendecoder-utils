@@ -1,8 +1,12 @@
 name: Run Tests and NPM publish
+
 on:
     push:
+        branches:
+            - "!*"
         tags:
             - '*'
+
 jobs:
     transpile-patch-publish:
         runs-on: ubuntu-latest
