@@ -13,8 +13,8 @@ jobs:
         steps:
             - name: 'Checkout source code'
               uses: 'actions/checkout@v2'
-              # with:
-              #     ref: ${{ github.ref }}
+              with:
+                   ref: ${{ github.ref }}
             - name: 'cat package.json'
               run: cat ./src/package/package.json
             - name: 'Setup Node.js'
