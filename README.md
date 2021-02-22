@@ -12,7 +12,7 @@ or
 ## Usage
 
 ```javascript
-import { constants, validate, validationFns } from 'gendecoder-utils'
+import { validationFns } from 'gendecoder-utils'
 ```
 ## Author
 

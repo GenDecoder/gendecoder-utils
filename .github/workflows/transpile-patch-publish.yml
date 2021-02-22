@@ -1,8 +1,7 @@
 name: Run Tests and NPM publish
 on:
-    create:
+    push:
         tags:
-            # - 'bump-version-*' // Try later to run only for specific tag and not for All
             - '*'
 jobs:
     transpile-patch-publish:
