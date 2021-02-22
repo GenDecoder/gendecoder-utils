@@ -7,8 +7,8 @@ const FIELD_VALUES = { FEMALE: 'f', MALE: 'm' };
 const FORM_FIELDS = { NAME: 'name', EMAIL: 'email', PASSWORD: 'password', GENDER: 'gender', AGREEMENT: 'agreement' };
 const validate = (valueMap: any = {}, errorMap: any = {}) => {
     const { AGREEMENT, EMAIL, PASSWORD } = FORM_FIELDS;
-    errorMap[EMAIL] = vfs.required(valueMap[EMAIL]) || vfs.invalidEmail(valueMap[EMAIL]);
-    errorMap[PASSWORD] = vfs.required(valueMap[PASSWORD]) || vfs.invalidPassword(valueMap[PASSWORD]);
+    errorMap[EMAIL] = vfs.isEmpty(valueMap[EMAIL]) || vfs.invalidEmail(valueMap[EMAIL]);
+    errorMap[PASSWORD] = vfs.isEmpty(valueMap[PASSWORD]) || vfs.invalidPassword(valueMap[PASSWORD]);
     errorMap[AGREEMENT] = vfs.notEqualTo(valueMap[AGREEMENT], true);
 
     return errorMap;

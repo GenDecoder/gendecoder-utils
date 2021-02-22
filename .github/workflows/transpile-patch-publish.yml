@@ -1,5 +1,8 @@
 name: NPM publish
-
+on:
+  push:
+    tags:
+      - 'bump-version*'
 on:
     push:
         branches: [main]

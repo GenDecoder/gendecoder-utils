@@ -1,42 +1,28 @@
-export type TErrorCode = 'error_code_invalid_email' |
-    'error_code_invalid_password' |
-    'error_code_nor' |
-    'error_code_not_equal_to' |
-    'error_code_over_max_length' |
-    'error_code_over_max_value' |
-    'error_code_required' |
-    'error_code_under_min_length' |
-    'error_code_under_min_value' |
-    'error_code_without_lower_case' |
-    'error_code_without_number' |
-    'error_code_without_special_character' |
-    'error_code_without_upper_case';
+import { FORM_ERRORS } from "./constants";
 
 export type TFormErrors = {
-    INVALID_EMAIL: TErrorCode;
-    INVALID_PASSWORD: TErrorCode;
-    NOR: TErrorCode;
-    NOT_EQUAL_TO: TErrorCode;
-    OVER_MAX_LENGTH: TErrorCode;
-    OVER_MAX_VALUE: TErrorCode;
-    REQUIRED: TErrorCode;
-    UNDER_MIN_LENGTH: TErrorCode;
-    UNDER_MIN_VALUE: TErrorCode;
-    WITHOUT_LOWER_CASE_CHARACTER: TErrorCode;
-    WITHOUT_NUMBER: TErrorCode;
-    WITHOUT_SPECIAL_CHARACTER: TErrorCode;
-    WITHOUT_UPPER_CASE_CHARACTER: TErrorCode;
+    invalid_email: 'invalid_email',
+    invalid_password: 'invalid_password',
+    is_empty: 'is_empty',
+    not_equal_to: 'not_equal_to',
+    over_max_length: 'over_max_length',
+    over_max_value: 'over_max_value',
+    under_min_length: 'under_min_length',
+    under_min_value: 'under_min_value',
+    without_lower_case: 'without_lower_case',
+    without_number: 'without_number',
+    without_special_character: 'without_special_character',
+    without_upper_case: 'without_upper_case'
 }
 
 export type TValidationFns = {
-    notEqualTo: (valueOne: any, valueTwo: any) => TErrorCode | false;
-    invalidEmail: (value: string) => TErrorCode | false;
-    invalidPassword: (value: string) => TErrorCode | false;
-    overMaxLength: (value: any, maxLength: number) => TErrorCode | false;
-    overMaxValue: (value: any, maxValue: number) => TErrorCode | false;
-    underMinLength: (value: any, minLength: number) => TErrorCode | false;
-    underMinValue: (value: any, minValue: number) => TErrorCode | false;
-    required: (value: any) => TErrorCode | false;
-    nor: (valueOne: any, valueTwo: any) => TErrorCode | false;
-    getPasswordErrors: (value: string) => TErrorCode[] | false;
+    getPasswordErrors: (value: string) => (keyof TFormErrors)[] | false;
+    invalidEmail: (value: string) => typeof FORM_ERRORS['invalid_email'] | false;
+    invalidPassword: (value: string) => typeof FORM_ERRORS['invalid_password'] | false;
+    isEmpty: (value: any) => typeof FORM_ERRORS['is_empty'] | false;
+    notEqualTo: (valueOne: any, valueTwo: any) => typeof FORM_ERRORS['not_equal_to'] | false;
+    overMaxLength: (value: any, maxLength: number) => typeof FORM_ERRORS['over_max_length'] | false;
+    overMaxValue: (value: any, maxValue: number) => typeof FORM_ERRORS['over_max_value'] | false;
+    underMinLength: (value: any, minLength: number) => typeof FORM_ERRORS['under_min_length'] | false;
+    underMinValue: (value: any, minValue: number) => typeof FORM_ERRORS['under_min_value'] | false;
 }

@@ -1,5 +1,3 @@
-/// <reference path="type.d.ts" />
-
 import { TFormErrors, TValidationFns } from "./type";
 
 declare module 'gendecoder-utils' {
@@ -7,3 +5,4 @@ declare module 'gendecoder-utils' {
     export const validationFns: TValidationFns;
 }
 
+export { TFormErrors } from './type';
