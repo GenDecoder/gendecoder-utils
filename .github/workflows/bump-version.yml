@@ -39,7 +39,7 @@ jobs:
               env:
                   NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
               run: echo "new tag $NEW_TAG"
-  test-transpile-publish:
+    test-transpile-publish:
       name: 'Test and Publish'
       runs-on: ubuntu-latest
 
