@@ -1,6 +1,6 @@
 {
     "name": "gendecoder-utils",
-    "version": "0.1.25",
+    "version": "0.1.26",
     "description": "🔧 A bunch of utilities that are useful no matter which project",
     "main": "dist/index.ts",
     "types": "dist/index.d.ts",
