@@ -1,26 +1,39 @@
-import { FORM_ERRORS as fE, validationFns } from "../dist";
+import { FORM_ERRORS as fes, validationFns as vfs } from "../dist";
 
 describe("validationFns", () => {
 	describe('notEqualTo', () => {
-		it(`When valueOne and valueTwo are not equal then ${fE.not_equal_to}`, () => {
-			expect(validationFns.notEqualTo(1, 2)).toEqual(fE.not_equal_to);
+		it(`When valueOne and valueTwo are not equal then ${fes.not_equal_to}`, () => {
+			expect(vfs.notEqualTo(1, 2)).toEqual(fes.not_equal_to);
 		});
 		it("When valueOne and valueTwo are equal then FALSE", () => {
-			expect(validationFns.notEqualTo(2, 2)).toBeFalsy();
+			expect(vfs.notEqualTo(2, 2)).toBeFalsy();
 		});
 	});
 	describe('invalidEmail', () => {
-		it(`When value is an invalid email then ${fE.invalid_email}`, () => {
-			expect(validationFns.invalidEmail('')).toEqual(fE.invalid_email);
-			expect(validationFns.invalidEmail('test')).toEqual(fE.invalid_email);
-			expect(validationFns.invalidEmail('test@')).toEqual(fE.invalid_email);
-			expect(validationFns.invalidEmail('test@test')).toEqual(fE.invalid_email);
-			expect(validationFns.invalidEmail('test@test.')).toEqual(fE.invalid_email);
+		it(`When value is an invalid email then ${fes.invalid_email}`, () => {
+			expect(vfs.invalidEmail('')).toEqual(fes.invalid_email);
+			expect(vfs.invalidEmail('test')).toEqual(fes.invalid_email);
+			expect(vfs.invalidEmail('test@')).toEqual(fes.invalid_email);
+			expect(vfs.invalidEmail('test@test')).toEqual(fes.invalid_email);
+			expect(vfs.invalidEmail('test@test.')).toEqual(fes.invalid_email);
 		});
 		it("When value is a valid email then  FALSE", () => {
-			expect(validationFns.invalidEmail('a@a.co')).toBeFalsy();
-			expect(validationFns.invalidEmail('test@test.co')).toBeFalsy();
-			expect(validationFns.invalidEmail('test@test.com')).toBeFalsy();
+			expect(vfs.invalidEmail('a@a.co')).toBeFalsy();
+			expect(vfs.invalidEmail('test@test.co')).toBeFalsy();
+			expect(vfs.invalidEmail('test@test.com')).toBeFalsy();
 		});
 	});
+	describe('overMaxLength', () => {
+		const maxLength = 5;
+		it(`RETURNS ${fes.over_max_length} WHEN *value* length is greater than ${maxLength}`, () => {
+			expect(vfs.overMaxLength('123456', maxLength)).toBe(fes.over_max_length);
+			expect(vfs.overMaxLength(123456, maxLength)).toBe(fes.over_max_length);
+		});
+		it(`RETURNS false WHEN *value* length is equal or lesser than ${maxLength}`, () => {
+			expect(vfs.overMaxLength('12345', maxLength)).toBeFalsy();
+			expect(vfs.overMaxLength(12345, maxLength)).toBeFalsy();
+			expect(vfs.overMaxLength('1234', maxLength)).toBeFalsy();
+			expect(vfs.overMaxLength(1234, maxLength)).toBeFalsy();
+		});
+	})
 });
