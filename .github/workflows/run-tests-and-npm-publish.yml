@@ -5,10 +5,10 @@ on:
         branches:
             - "!*"
         tags:
-            - '**'
+            - '*'
     create:
         tags:
-            - '**'
+            - '*'
 
 jobs:
     test-transpile-publish:
