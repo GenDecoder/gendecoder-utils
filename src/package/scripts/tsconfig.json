@@ -18,9 +18,9 @@
         "resolveJsonModule": true,
         "isolatedModules": true,
         "jsx": "react",
-        "sourceMap": false,
+        "sourceMap": false
     },
     "include": [
-        "../dist/**/*"
+        "../dist/*"
     ]
 }
