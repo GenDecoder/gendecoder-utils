@@ -1,8 +1,9 @@
-name: NPM publish
+name: Run Tests and NPM publish
 on:
     create:
         tags:
-            - 'bump-version-*'
+            # - 'bump-version-*'
+            - '*'
 jobs:
     transpile-patch-publish:
         runs-on: ubuntu-latest
