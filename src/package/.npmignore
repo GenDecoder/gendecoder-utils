@@ -2,5 +2,6 @@ __tests__
 .github
 scripts
 dist/index.ts
-dist/useForm.ts
+dist/constants.ts
+dist/utils/validationFns.ts
 samples
