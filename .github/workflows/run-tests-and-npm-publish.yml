@@ -1,7 +1,7 @@
 name: Run Tests and NPM publish
 
 on:
-    pull_request:
+    push:
         tags:
             - "v*"
 
