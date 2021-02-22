@@ -5,10 +5,13 @@ on:
         branches:
             - "!*"
         tags:
-            - '*'
+            - '**'
+    create:
+        tags:
+            - '**'
 
 jobs:
-    transpile-patch-publish:
+    test-transpile-publish:
         runs-on: ubuntu-latest
 
         steps:
