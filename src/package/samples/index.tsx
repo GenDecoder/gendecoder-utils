@@ -1,11 +1,24 @@
 import React from 'react';
 import { useForm } from 'react-100-form';
-import { constants, validate } from '../dist';
+import { validationFns as vfs } from '../dist';
 import './styles.css';
 
-const { EMAIL, PASSWORD, GENDER, AGREEMENT } = constants.FIELD_KEYS;
-const { FEMALE, MALE } = constants.FIELD_VALUES;
-const initialValues = { [EMAIL]: '', [PASSWORD]: '', [GENDER]: FEMALE, [AGREEMENT]: false };
+const FIELD_VALUES = { FEMALE: 'f', MALE: 'm' };
+const FORM_FIELDS = { NAME: 'name', EMAIL: 'email', PASSWORD: 'password', GENDER: 'gender', AGREEMENT: 'agreement' };
+const validate = (valueMap: any = {}, errorMap: any = {}) => {
+    const { AGREEMENT, EMAIL, PASSWORD } = FORM_FIELDS;
+    errorMap[EMAIL] = vfs.required(valueMap[EMAIL]) || vfs.invalidEmail(valueMap[EMAIL]);
+    errorMap[PASSWORD] = vfs.required(valueMap[PASSWORD]) || vfs.invalidPassword(valueMap[PASSWORD]);
+    errorMap[AGREEMENT] = vfs.notEqualTo(valueMap[AGREEMENT], true);
+
+    return errorMap;
+};
+const initialValues = {
+    [FORM_FIELDS.EMAIL]: '',
+    [FORM_FIELDS.PASSWORD]: '',
+    [FORM_FIELDS.GENDER]: FIELD_VALUES.FEMALE,
+    [FORM_FIELDS.AGREEMENT]: false,
+};
 
 const SampleForm = () => {
     const {
@@ -70,24 +83,24 @@ const SampleForm = () => {
                 {/* INPUT FIELD */}
 
                 <div className="field">
-                    <label htmlFor={EMAIL}>{`${EMAIL}:`}</label>
+                    <label htmlFor={FORM_FIELDS.EMAIL}>{`${FORM_FIELDS.EMAIL}:`}</label>
                     <input
-                        id={EMAIL}
-                        name={EMAIL}
+                        id={FORM_FIELDS.EMAIL}
+                        name={FORM_FIELDS.EMAIL}
                         onBlur={handleBlur}
                         onChange={handleChange}
                         type="text"
-                        value={values[EMAIL]}
+                        value={values[FORM_FIELDS.EMAIL]}
                     />
                     <div className="info-container">
                         <div className="info-item">
                             <span>{'Touched'}</span>
-                            <span>{String(!!touchedMap[EMAIL])}</span>
+                            <span>{String(!!touchedMap[FORM_FIELDS.EMAIL])}</span>
                         </div>
 
                         <div className="info-item">
                             <span>{'Error'}</span>
-                            <span>{String(errorMap[EMAIL] || 'None')}</span>
+                            <span>{String(errorMap[FORM_FIELDS.EMAIL] || 'None')}</span>
                         </div>
                     </div>
                 </div>
@@ -95,24 +108,24 @@ const SampleForm = () => {
                 {/* INPUT FIELD */}
 
                 <div className="field">
-                    <label htmlFor={PASSWORD}>{`${PASSWORD}:`}</label>
+                    <label htmlFor={FORM_FIELDS.PASSWORD}>{`${FORM_FIELDS.PASSWORD}:`}</label>
                     <input
-                        id={PASSWORD}
-                        name={PASSWORD}
+                        id={FORM_FIELDS.PASSWORD}
+                        name={FORM_FIELDS.PASSWORD}
                         onBlur={handleBlur}
                         onChange={handleChange}
                         type="password"
-                        value={values[PASSWORD]}
+                        value={values[FORM_FIELDS.PASSWORD]}
                     />
                     <div className="info-container">
                         <div className="info-item">
                             <span>{'Touched'}</span>
-                            <span>{String(!!touchedMap[PASSWORD])}</span>
+                            <span>{String(!!touchedMap[FORM_FIELDS.PASSWORD])}</span>
                         </div>
 
                         <div className="info-item">
                             <span>{'Error'}</span>
-                            <span>{String(errorMap[PASSWORD] || 'None')}</span>
+                            <span>{String(errorMap[FORM_FIELDS.PASSWORD] || 'None')}</span>
                         </div>
                     </div>
                 </div>
@@ -120,30 +133,30 @@ const SampleForm = () => {
                 {/* RADIO FIELD */}
 
                 <div className="field">
-                    <label>{`${GENDER}:`}</label>
+                    <label>{`${FORM_FIELDS.GENDER}:`}</label>
                     <div style={{ marginTop: 10 }}>
                         <input
-                            checked={MALE === values[GENDER]}
-                            id={MALE}
-                            name={GENDER}
+                            checked={FIELD_VALUES.MALE === values[FORM_FIELDS.GENDER]}
+                            id={FIELD_VALUES.MALE}
+                            name={FORM_FIELDS.GENDER}
                             onChange={handleChange}
                             type="radio"
-                            value={MALE}
+                            value={FIELD_VALUES.MALE}
                         />
-                        <label htmlFor={MALE} style={{ marginLeft: 5 }}>
+                        <label htmlFor={FIELD_VALUES.MALE} style={{ marginLeft: 5 }}>
                             {'Male'}
                         </label>
                     </div>
                     <div>
                         <input
-                            checked={FEMALE === values[GENDER]}
-                            id={FEMALE}
-                            name={GENDER}
+                            checked={FIELD_VALUES.FEMALE === values[FORM_FIELDS.GENDER]}
+                            id={FIELD_VALUES.FEMALE}
+                            name={FORM_FIELDS.GENDER}
                             onChange={handleChange}
                             type="radio"
-                            value={FEMALE}
+                            value={FIELD_VALUES.FEMALE}
                         />
-                        <label htmlFor={FEMALE} style={{ marginLeft: 5 }}>
+                        <label htmlFor={FIELD_VALUES.FEMALE} style={{ marginLeft: 5 }}>
                             {'Female'}
                         </label>
                     </div>
@@ -151,7 +164,7 @@ const SampleForm = () => {
                     <div className="info-container">
                         <div className="info-item">
                             <span>{'Error'}</span>
-                            <span>{String(errorMap[GENDER] || 'None')}</span>
+                            <span>{String(errorMap[FORM_FIELDS.GENDER] || 'None')}</span>
                         </div>
                     </div>
                 </div>
@@ -159,16 +172,16 @@ const SampleForm = () => {
                 {/* CHECKBOX FIELD */}
 
                 <div className="field">
-                    <label>{`${AGREEMENT}:`}</label>
+                    <label>{`${FORM_FIELDS.AGREEMENT}:`}</label>
                     <div style={{ marginTop: 10 }}>
                         <input
-                            id={AGREEMENT}
-                            name={AGREEMENT}
+                            id={FORM_FIELDS.AGREEMENT}
+                            name={FORM_FIELDS.AGREEMENT}
                             onChange={handleChange}
                             type="checkbox"
-                            value={values[AGREEMENT]}
+                            value={values[FORM_FIELDS.AGREEMENT]}
                         />
-                        <label htmlFor={AGREEMENT} style={{ marginLeft: 5 }}>
+                        <label htmlFor={FORM_FIELDS.AGREEMENT} style={{ marginLeft: 5 }}>
                             {'Do you accept?'}
                         </label>
                     </div>
@@ -176,7 +189,7 @@ const SampleForm = () => {
                     <div className="info-container">
                         <div className="info-item">
                             <span>{'Error'}</span>
-                            <span>{String(errorMap[AGREEMENT] || 'None')}</span>
+                            <span>{String(errorMap[FORM_FIELDS.AGREEMENT] || 'None')}</span>
                         </div>
                     </div>
                 </div>

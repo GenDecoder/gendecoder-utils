@@ -1,6 +1,6 @@
-import * as constants from './constants';
-import { default as validate } from './utils/validate';
-import * as validationFns from './utils/validationFns';
+import {FORM_ERRORS} from './constants';
+// import { default as validate } from './utils/validate';
+import validationFns from './utils/validationFns';
 
-export { constants, validationFns, validate };
+export { FORM_ERRORS, validationFns };
 
