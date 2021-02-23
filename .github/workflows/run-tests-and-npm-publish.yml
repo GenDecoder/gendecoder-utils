@@ -2,8 +2,10 @@ name: Run Tests and NPM publish
 
 on:
   push:
+    branches:
+      - "!*"
     tags:
-      - "v*"
+      - "*"
 
 jobs:
     test-transpile-publish:
