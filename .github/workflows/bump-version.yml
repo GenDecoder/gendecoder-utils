@@ -31,7 +31,7 @@ jobs:
                   # patch-wording:  'patch'
                   rc-wording: 'epic'
               env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  GITHUB_TOKEN: ${{ secrets.FOR_ACTIONS }}
                   PACKAGEJSON_DIR: 'src/package'
             - name: 'cat package.json'
               run: cat ./src/package/package.json
