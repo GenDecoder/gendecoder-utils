@@ -1,11 +1,6 @@
 name: Run Tests and NPM publish
 
-on:
-  push:
-    branches:
-      - "!*"
-    tags:
-      - "*"
+on: [workflow_dispatch]
 
 jobs:
     test-transpile-publish:
