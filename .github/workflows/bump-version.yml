@@ -39,3 +39,9 @@ jobs:
               env:
                   NEW_TAG: ${{ steps.version-bump.outputs.newTag }}
               run: echo "new tag $NEW_TAG"
+          
+            - name: Invoke workflow without inputs
+              uses: benc-uk/workflow-dispatch@v1
+              with:
+                workflow: Run Tests and NPM publish
+                token: ${{ secrets.FOR_ACTIONS }}
