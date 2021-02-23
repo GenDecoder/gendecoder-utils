@@ -48,31 +48,47 @@ describe('validationFns', () => {
             expect(vfs.overMaxValue('9', maxValue)).toBeFalsy();
             expect(vfs.overMaxValue(9, maxValue)).toBeFalsy();
         });
+    });
+    describe('underMinLength', () => {
+        const minLength = 5;
+        it(`RETURNS ${fes.under_min_length} WHEN value length is lower than ${minLength}`, () => {
+            expect(vfs.underMinLength('1234', minLength)).toBe(fes.under_min_length);
+            expect(vfs.underMinLength(1234, minLength)).toBe(fes.under_min_length);
+        });
+        it(`RETURNS false WHEN value length is equal or greater than ${minLength}`, () => {
+            expect(vfs.underMinLength('12345', minLength)).toBeFalsy();
+            expect(vfs.underMinLength(12345, minLength)).toBeFalsy();
+            expect(vfs.underMinLength('123456', minLength)).toBeFalsy();
+            expect(vfs.underMinLength(123456, minLength)).toBeFalsy();
+        });
+    });
+    describe('underMinValue', () => {
+        const minValue = 10;
+        it(`RETURNS ${fes.under_min_value} WHEN value is lower than ${minValue}`, () => {
+            expect(vfs.underMinValue(9, minValue)).toBe(fes.under_min_value);
+            expect(vfs.underMinValue('9', minValue)).toBe(fes.under_min_value);
+        });
+        it(`RETURNS false WHEN value is equal or greater than ${minValue}`, () => {
+            expect(vfs.underMinValue('10', minValue)).toBeFalsy();
+            expect(vfs.underMinValue(10, minValue)).toBeFalsy();
+            expect(vfs.underMinValue('11', minValue)).toBeFalsy();
+            expect(vfs.underMinValue(11, minValue)).toBeFalsy();
+        });
 	});
-	describe('underMinLength', () => {
-		const minLength = 5;
-		it(`RETURNS ${fes.under_min_length} WHEN value length is lower than ${minLength}`, () => {
-			expect(vfs.underMinLength('1234', minLength)).toBe(fes.under_min_length);
-			expect(vfs.underMinLength(1234, minLength)).toBe(fes.under_min_length);
-		});
-		it(`RETURNS false WHEN value length is equal or greater than ${minLength}`, () => {
-			expect(vfs.underMinLength('12345', minLength)).toBeFalsy();
-			expect(vfs.underMinLength(12345, minLength)).toBeFalsy();
-			expect(vfs.underMinLength('123456', minLength)).toBeFalsy();
-			expect(vfs.underMinLength(123456, minLength)).toBeFalsy();
-		});
-	});
-	describe('underMinValue', () => {
-		const minValue = 10;
-		it(`RETURNS ${fes.under_min_value} WHEN value is lower than ${minValue}`, () => {
-			expect(vfs.underMinValue(9, minValue)).toBe(fes.under_min_value);
-			expect(vfs.underMinValue('9', minValue)).toBe(fes.under_min_value);
-		});
-		it(`RETURNS false WHEN value is equal or greater than ${minValue}`, () => {
-			expect(vfs.underMinValue('10', minValue)).toBeFalsy();
-			expect(vfs.underMinValue(10, minValue)).toBeFalsy();
-			expect(vfs.underMinValue('11', minValue)).toBeFalsy();
-			expect(vfs.underMinValue(11, minValue)).toBeFalsy();
-		});
-	})
+	describe('isEmpty', () => {
+        it(`RETURNS ${fes.is_empty} WHEN value is "empty"`, () => {
+            expect(vfs.isEmpty('')).toBe(fes.is_empty);
+            expect(vfs.isEmpty(null)).toBe(fes.is_empty);
+            expect(vfs.isEmpty(false)).toBe(fes.is_empty);
+			expect(vfs.isEmpty(undefined)).toBe(fes.is_empty);
+			expect(vfs.isEmpty([])).toBe(fes.is_empty); // TODO
+        });
+        it(`RETURNS false WHEN value is "not empty"`, () => {
+			expect(vfs.isEmpty('1')).toBeFalsy();
+			expect(vfs.isEmpty(1)).toBeFalsy();
+			expect(vfs.isEmpty(0)).toBeFalsy();
+			expect(vfs.isEmpty(true)).toBeFalsy();
+			expect(vfs.isEmpty({})).toBeFalsy(); // TODO
+        });
+    });
 });

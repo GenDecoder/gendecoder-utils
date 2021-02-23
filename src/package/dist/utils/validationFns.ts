@@ -20,7 +20,7 @@ const validationFns: TValidationFns = {
     underMinLength: (value, minLength) =>
         String(value).trim().length < minLength && fE.under_min_length,
     underMinValue: (value, minValue) => Number(value) < minValue && fE.under_min_value,
-    isEmpty: (value) => String(value).trim() === '' && fE.is_empty,
+    isEmpty: (value) => (value === null || value === false || value === undefined || String(value).trim() === '') && fE.is_empty,
 
     getPasswordErrors: (value) => {
         const specialCharacters = '!"#$%&\'()*+,-./:;<=>?@[]^_`{|}~';
