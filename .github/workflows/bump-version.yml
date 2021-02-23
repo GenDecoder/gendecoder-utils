@@ -30,6 +30,7 @@ jobs:
                   major-wording: 'story'
                   # patch-wording:  'patch'
                   rc-wording: 'epic'
+                  skip-tag:  'true'
               env:
                   GITHUB_TOKEN: ${{ secrets.FOR_ACTIONS }}
                   PACKAGEJSON_DIR: 'src/package'
@@ -43,5 +44,5 @@ jobs:
             - name: Invoke workflow without inputs
               uses: benc-uk/workflow-dispatch@v1
               with:
-                workflow: Run Tests and NPM publish
+                workflow: 'Run Tests and NPM publish'
                 token: ${{ secrets.FOR_ACTIONS }}
